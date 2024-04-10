@@ -1,0 +1,87 @@
+<div class="contact">
+  <div class="container">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="titlepage">
+            <h2>Register Form</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <form class="main_form" [formGroup]="form" (ngSubmit)="register()">
+      <div class="row justify-content-center"> 
+        <div class="col-md-8">
+          <input
+            class="form_contril"
+            placeholder="Your Email"
+            type="email"
+            name="email"
+            id="email"
+            formControlName="email"
+          />
+        </div>
+        <div>
+        <ng-container *ngIf="form.get('email')?.touched">
+          <p *ngIf="form.get('email')?.errors?.['required']"> Email is required</p>
+          <p *ngIf="form.get('email')?.errors?.['validateEmail']">
+          Email is not valid. Expected email domains are:
+          {{form.get('email')?.errors?.['expectedDomains']}}
+        </p>
+        </ng-container>
+      </div>
+      <ng-container formGroupName="passGroup"> 
+        <div class="col-md-8">
+          <input
+            class="form_contril"
+            placeholder="********"
+            type="password"
+            name="password"
+            id="password"
+            formControlName="password"
+          />
+        </div>
+        <ng-container *ngIf="form.get('passGroup')?.get('password')?.touched">
+          <p
+            *ngIf="form.get('passGroup')?.get('password')?.errors?.['required']"
+          >
+            Password is required
+          </p>
+          <p
+            *ngIf="form.get('passGroup')?.get('password')?.errors?.['minlength']"
+          >
+            Password is not valid. It must be at least
+            {{form.get('passGroup')?.get('password')?.errors?.['minlength']['requiredLength']}}
+            characters.
+          </p>
+        </ng-container>
+        <div class="col-md-8">
+          <input
+            class="form_contril"
+            placeholder="********"
+            type="password"
+            name="rePassword"
+            id="rePassword"
+            formControlName="confirmPass"
+          />
+        </div>
+        <ng-container *ngIf="passGroup?.get('confirmPass')?.touched">
+          <p
+            *ngIf="passGroup?.get('confirmPass')?.errors?.['required']"
+          >
+            Confirm password is required field
+          </p>
+          <p
+            *ngIf="passGroup?.errors?.['matchPasswordsValidator']"
+          >
+            Your passwords do not match
+          </p>
+        </ng-container>
+        
+          <button class="send_btn">Register</button>
+        </ng-container>
+      </div>
+      
+    </form>
+  </div>
+</div>

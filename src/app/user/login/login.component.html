@@ -1,0 +1,84 @@
+<div class="contact">
+    <div class="container">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="titlepage">
+              <h2>Login</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form class="main_form" #form="ngForm" (ngSubmit)="login(form)">
+        <div>
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <input
+              class="form_contril"
+              placeholder="Your Email"
+              type="text"
+              name="email"
+              id="email"
+              ngModel
+              #emailInput="ngModel"
+              required
+              minlength="5"
+
+              [ngClass]="
+              emailInput.errors && emailInput.touched
+                ? 'border-l-red-400'
+                : 'border-l-green-400'
+            "
+            />
+          </div>
+          <ng-container *ngIf="emailInput.touched">
+            <p *ngIf="emailInput.errors?.['required']">
+              Email is required
+            </p>
+            <p  *ngIf="emailInput.errors?.['validateEmail']">
+              Email is not valid. Expected email domains are:
+              {{emailInput.errors?.['expectedDomains']}}
+            </p>
+          </ng-container>
+        </div>
+        <div>
+          <div class="col-md-8">
+            <input
+              class="form_contril"
+              placeholder="********"
+              type="password"
+              name="password"
+              id="password"
+              ngModel
+              #passwordInput="ngModel"
+              required  
+              minlength="5"
+              [ngClass]="
+              passwordInput.errors && passwordInput.touched
+                ? 'border-l-red-400'
+                : 'border-l-green-400'
+            "                       
+               />
+          </div>
+          <ng-container *ngIf="passwordInput.touched">
+            <p *ngIf="passwordInput.errors?.['required']">
+              Password is required
+            </p>
+            <p *ngIf="passwordInput.errors?.['minlength']">
+              Password is not valid. It must be at least
+              {{passwordInput.errors?.['minlength'].requiredLength}} characters.
+            </p>
+          </ng-container>
+          </div>
+
+          <ng-container *ngIf="loginError">
+            <p class="text-red-500">{{ loginError }}</p>
+          </ng-container>
+          <div class="col-md-8">
+            <button class="send_btn">Login</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  
