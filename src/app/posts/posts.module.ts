@@ -8,6 +8,9 @@ import { PostComponent } from './post/post.component';
 import { HomePostComponent } from './home-post/home-post.component';
 import { HomeComponent } from './home/home.component';
 import { DetailsComponent } from './details/details.component';
+import { PostDetailsComponent } from './post-details/post-details.component';
+import { MyPostsComponent } from './my-posts/my-posts.component';
+import { EditPostComponent } from './edit-post/edit-post.component';
 
 
 
@@ -18,10 +21,14 @@ import { DetailsComponent } from './details/details.component';
     PostComponent,
     HomePostComponent,
     HomeComponent,
-    DetailsComponent
+    DetailsComponent,
+    PostDetailsComponent,
+    MyPostsComponent,
+    EditPostComponent
   ],
   imports: [
     CommonModule, PostsRoutingModule, FormsModule
-  ]
+  ],
+  exports: [PostComponent,DetailsComponent]
 })
 export class PostsModule { }

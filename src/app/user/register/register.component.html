@@ -21,7 +21,7 @@
             formControlName="email"
           />
         </div>
-        <div>
+        
         <ng-container *ngIf="form.get('email')?.touched">
           <p *ngIf="form.get('email')?.errors?.['required']"> Email is required</p>
           <p *ngIf="form.get('email')?.errors?.['validateEmail']">
@@ -29,7 +29,7 @@
           {{form.get('email')?.errors?.['expectedDomains']}}
         </p>
         </ng-container>
-      </div>
+      
       <ng-container formGroupName="passGroup"> 
         <div class="col-md-8">
           <input

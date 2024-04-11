@@ -1,15 +1,14 @@
-
 <div class="blog_main">
   <div class="container">
-    <div class="row">
+    <div class="drow">
       <div class="col-md-12">
         <div class="titlepage">
           <h2>Latest posts</h2>
         </div>
       </div>
     </div>
-    <div class="row">
-    <div *ngFor="let post of post">
+    <div class="d_flex">
+    <div *ngFor="let post of post | slice: 0 : 3">
       <app-home-post [post]="post"></app-home-post>
     </div>
     </div>

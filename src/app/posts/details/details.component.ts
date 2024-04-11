@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PostService } from 'src/app/post.service';
+import { PostService } from 'src/app/services/post.service';
 import { Post } from 'src/app/types/post';
 import { LoginAuthUser } from 'src/app/types/user';
-import { UserService } from 'src/app/user/user.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-details',
@@ -11,8 +11,6 @@ import { UserService } from 'src/app/user/user.service';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit{
-
-  @Input() curPost!: Post;
 
   currentPost: Post = {} as Post;
   user: LoginAuthUser = {} as LoginAuthUser;

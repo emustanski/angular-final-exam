@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs';
-import { PostService} from 'src/app/post.service';
+import { PostService} from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-create-post',
