@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent} from './home/home.component';
+import { HomeComponent} from './posts/home/home.component';
 import { CoreModule } from './core/core.module';
 import { UserModule } from './user/user.module';
 import { UserRoutingModule } from './user/user-routing.module';
@@ -16,7 +16,6 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
   ],
   imports: [
     BrowserModule,

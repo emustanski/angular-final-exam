@@ -36,21 +36,16 @@
           <!-- <div class="col-md-8">
             <input
               class="form_contril"
-              placeholder="********"
-              type="password"
-              name="password"
-            />
-          </div>
-          <div class="col-md-8">
-            <input
-              class="form_contril"
-              placeholder="********"
-              type="rePassword"
-              name="rePassword"
+              placeholder="URL of image"
+              type="text"
+              name="img"
+              id="img"
+              #inputImg="ngModel"
+              ngModel
             />
           </div> -->
           <div class="col-md-8">
-            <button class="send_btn" (click)="createPost(form)">Create</button>
+            <button class="send_btn">Create</button>
           </div>
         </div>
       </form>

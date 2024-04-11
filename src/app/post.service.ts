@@ -19,7 +19,13 @@ export class PostService {
   }
 
   getPost(postId: string): Observable<Post> {
-    return this.http.get<Post>(`${this.apiUrl}/${postId}`)
+    return this.http.get<Post>(`${this.apiUrl}/data/posts/${postId}`)
+  }
+
+  getAllByOwner(ownerId: string): Observable<Post[]> {
+    return this.http.get<Post[]>(
+      `${this.apiUrl}?where=_ownerId%3D%22${ownerId}%22`
+    );
   }
 
   createPost(post: CreatePost): Observable<CreatePost> {
@@ -39,5 +45,40 @@ export class PostService {
       post,
       options
     )
+  }
+
+  editPost(
+    postId: string,
+   post: Post
+  ): Observable<Post> {
+    const localStorageUser = localStorage.getItem(this.USER_KEY) || '';
+    const user = JSON.parse(localStorageUser);
+    const accessToken = user.accessToken;
+
+    const headers = new HttpHeaders({
+      'X-Authorization': accessToken,
+      'Content-Type': 'application/json',
+    });
+    const options = { headers };
+    return this.http.put<Post>(
+      `${this.apiUrl}/data/posts/${postId}`,
+      post,
+      options
+    );
+  }
+
+  deletePost(postId: string): Observable<Post> {
+    const localStorageUser = localStorage.getItem(this.USER_KEY) || '';
+    const user = JSON.parse(localStorageUser);
+    const accessToken = user.accessToken;
+
+    const headers = new HttpHeaders({
+      'X-Authorization': accessToken,
+    });
+    const options = { headers };
+    return this.http.delete<Post>(
+      `${this.apiUrl}/data/posts/${postId}`,
+      options
+    );
   }
 }
