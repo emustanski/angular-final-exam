@@ -1,7 +1,7 @@
-The project is using Angular v16.2 and SoftUni-Practice-Server for Back-End
+The project is using Angular v16.2 and [SoftUni-Practice-Server] (https://github.com/softuni-practice-server/softuni-practice-server) for Back-End
 
 
-Running the project for the first time:
+** Running the project for the first time: ** 
 
 Clone the repository from github.
 
@@ -11,7 +11,7 @@ Make sure the backend server is up and running.
 
 Run ng serve to start the project.
 
-Users access
+**Users access**
 
 Unauthenticated users will have access to the following routes:
 
@@ -33,6 +33,6 @@ Create Post
 
 Edit Post
 
-Delete Post
+Delete Post    
 
 Logout
