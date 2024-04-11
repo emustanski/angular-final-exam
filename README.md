@@ -1,7 +1,7 @@
-The project is using Angular v16.2 and [SoftUni-Practice-Server] (https://github.com/softuni-practice-server/softuni-practice-server) for Back-End
+The project is using Angular v16.2 and [SoftUni-Practice-Server](https://github.com/softuni-practice-server/softuni-practice-server) for Back-End
 
 
-** Running the project for the first time: ** 
+**Running the project for the first time:** 
 
 Clone the repository from github.
 
@@ -13,7 +13,7 @@ Run ng serve to start the project.
 
 **Users access**
 
-Unauthenticated users will have access to the following routes:
+*Unauthenticated users will have access to the following routes:*
 
 Home
 
@@ -25,7 +25,7 @@ Login
 
 Register
 
-Authenticated users will have access to all routes above and to the following routes:
+*Authenticated users will have access to all routes above and to the following routes:*
 
 My Posts
 
