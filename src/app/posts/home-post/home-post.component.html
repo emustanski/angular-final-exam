@@ -1,23 +1,24 @@
 <div class="row">
   <div class="col-md-12">
-     <div class="our_two_box">
-        <div class="row d_flex">
-              <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-              <div class="our_img">
-                 <figure><img src="{{post.img}}" alt="NO IMAGE"/></figure>
-              </div>
-           </div>
-           <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-              <div class="our_text_box">                 
-                 <h3 class="awesome pa_wi">{{post.title}}</h3>
-                 <p>{{post.content}}</p>
-                 <div class="post_box padding_bottom1">
-                 <ul class="like">
-                 <li><a routerLink="/posts/{{post._id}}">Details</a></li></ul>
-                </div>
-              </div>
-           </div>
+    <div class="our_two_box">
+      <div class="row d_flex">
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+          <div class="our_img">
+            <figure><img src="{{ post.img }}" alt="NO IMAGE" /></figure>
+          </div>
         </div>
-     </div>
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+          <div class="our_text_box">
+            <h3 class="awesome pa_wi">{{ post.title }}</h3>
+            <p>{{ post.content }}</p>
+            <div class="post_box padding_bottom1">
+              <ul class="like">
+                <li><button routerLink="/posts/{{ post._id }}">Details</button></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

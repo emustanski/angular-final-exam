@@ -14,7 +14,7 @@ export class LoginComponent {
   loginError: string | undefined;
   domains: string[] = EMAIL_DOMAINS;
 
-  constructor (private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) { }
 
   login(form: NgForm) {
     if (form.invalid) {
@@ -23,7 +23,7 @@ export class LoginComponent {
 
     const { email, password } = form.value;
 
-    this.userService.login$(email, password).subscribe({
+    this.userService.login(email, password).subscribe({
       next: () => {
         this.router.navigate(['/all-posts']);
       },

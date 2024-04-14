@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent} from './posts/home/home.component';
+import { HomeComponent } from './posts/home/home.component';
 import { CoreModule } from './core/core.module';
 import { UserModule } from './user/user.module';
 import { UserRoutingModule } from './user/user-routing.module';
@@ -22,11 +22,11 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     CoreModule,
     HttpClientModule,
-   UserModule,
-   UserRoutingModule,
-   PostsModule,
-   PostsRoutingModule,
-   FormsModule
+    UserModule,
+    UserRoutingModule,
+    PostsModule,
+    PostsRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

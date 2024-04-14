@@ -3,7 +3,6 @@ export type Post = {
     _ownerId: string;
     title: string;
     content: string;
-    authorName?: string;
     _createdOn: number;
     _editedOn: number;
     post: string;

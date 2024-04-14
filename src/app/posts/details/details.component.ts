@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css']
 })
-export class DetailsComponent implements OnInit{
+export class DetailsComponent implements OnInit {
 
   currentPost: Post = {} as Post;
   user: LoginAuthUser = {} as LoginAuthUser;
@@ -24,10 +24,10 @@ export class DetailsComponent implements OnInit{
 
   constructor(
     private route: ActivatedRoute,
-    private userService: UserService,
-    private postService: PostService,
+    public userService: UserService,
+    public postService: PostService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((data) => {
@@ -45,8 +45,9 @@ export class DetailsComponent implements OnInit{
     }
   }
 
+
   deleteHandler(): void {
-    this.postService.deletePost(this.currentPost._id).subscribe(() => { 
+    this.postService.deletePost(this.currentPost._id).subscribe(() => {
       this.router.navigate(['/home']);
     });
   }

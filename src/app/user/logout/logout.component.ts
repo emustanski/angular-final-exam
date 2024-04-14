@@ -12,7 +12,7 @@ export class LogoutComponent {
   constructor(private userService: UserService, private router: Router, private location: Location) {}
 
   logoutHandler() {
-    this.userService.logout$().subscribe({
+    this.userService.logout().subscribe({
       next: () => this.router.navigate(['/login']),
       error: (err) => console.error(err)
     })

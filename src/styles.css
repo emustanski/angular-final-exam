@@ -21,6 +21,11 @@ body {
     font-weight: normal;
     
 }
+.bodyfill {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
 
 a {
     color: #1f1f1f;

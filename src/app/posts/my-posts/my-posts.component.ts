@@ -8,11 +8,11 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './my-posts.component.html',
   styleUrls: ['./my-posts.component.css']
 })
-export class MyPostsComponent implements OnInit{
+export class MyPostsComponent implements OnInit {
 
   posts: Post[] = [];
 
-  constructor(private postService: PostService, private userService: UserService) {}
+  constructor(private postService: PostService, private userService: UserService) { }
 
   ngOnInit(): void {
     const ownerId = this.userService.user?._id || '';

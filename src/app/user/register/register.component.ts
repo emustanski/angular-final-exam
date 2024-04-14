@@ -16,7 +16,7 @@ export class RegisterComponent {
 
   registerError: string | undefined;
 
-    form = this.formBuilder.group({
+  form = this.formBuilder.group({
     email: ['', [Validators.required, validateEmail(EMAIL_DOMAINS)]],
     passGroup: this.formBuilder.group(
       {
@@ -32,7 +32,7 @@ export class RegisterComponent {
   get passGroup() {
     return this.form.get('passGroup');
   }
-  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) {}
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) { }
 
 
   register(): void {
@@ -43,7 +43,7 @@ export class RegisterComponent {
     if (password !== confirmPass) {
       return;
     }
-    this.userService.register$(email!, password!).subscribe({
+    this.userService.register(email!, password!).subscribe({
       next: () => {
         this.router.navigate(['/home']);
       },

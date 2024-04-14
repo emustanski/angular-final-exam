@@ -1,72 +1,24 @@
-<!-- <div class="row">
-    <div class="col-md-12">
-       <div class="our_two_box">
-          <div class="row">
-             <div class="col-md-12">
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                <div class="our_img">
-                   <figure><img class="" src="{{currentPost.img}}" alt="#"/></figure>
-                <div class="our_text_box position_box">
-                   <h3 class="awesome withi_color"> {{currentPost.title}}</h3>
-                   <p class="hiuouh">{{currentPost.content}}</p>
-                   <div class="post_box">
-                      <h4 class="flot_left1 withi_color">Post By : {{currentPost._ownerId}} </h4>
-                   </div>
-                </div>
-             </div>
-             </div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="our_two_box">
+      <div class="row d_flex">
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+          <div class="our_img">
+            <figure><img src="{{ currentPost.img }}" alt="NO IMAGE" /></figure>
           </div>
-       </div>
-    </div>
- </div> -->
- <!-- <div class="row">
-    <div class="col-md-12">
-       <div class="our_two_box">
-          <div class="row d_flex">
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                <div class="our_img">
-                   <figure><img src="{{currentPost.img}}" alt="#"/></figure>
-                </div>
-             </div>
-             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                <div class="our_text_box">
-                    <label><h3>Title:</h3></label>
-                   <p>{{currentPost.title}}</p>
-                   <div class="our_text_box">
-                    <label><h3>Content:</h3></label>
-                   <p>{{currentPost.content}}</p>
-                   </div>
-                   <div class="our_text_box">
-                    <label><h3>Created On:</h3></label>
-                   <p>{{currentPost._createdOn}}</p>
-                   </div>                   
-                </div>
-             </div>
-          </div>
-       </div>
-    </div>
- </div> -->
-
- <div class="row">
-    <div class="col-md-12">
-       <div class="our_two_box">
-          <div class="row d_flex">
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                <div class="our_img">
-                   <figure><img src="{{currentPost.img}}" alt="NO IMAGE"/></figure>
-                </div>
-             </div>
-             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                <div class="our_text_box">                 
-                   <h3 class="awesome pa_wi">{{currentPost.title}}</h3>
-                   <p>{{currentPost.content}}</p>
-                   <div class="post_box padding_bottom1">
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+          <div class="our_text_box">
+            <h3 class="awesome pa_wi">{{ currentPost.title }}</h3>
+            <p>{{ currentPost.content }}</p>
+            <!-- <div class="post_box padding_bottom1">
                    <ul class="like">
-                   <li><a  [routerLink]="'/' + 'my-posts/' + currentPost._id + '/edit'">Edit</a></li></ul>
-                  </div>
-                </div>
-             </div>
+                   <li><a [routerLink]="'/' + 'my-posts/' + currentPost._id + '/edit'">Edit</a></li>
+                   <li><button class="send_btn" (click)="deleteHandler()">Delete</button></li></ul>
+                  </div> -->
           </div>
-       </div>
+        </div>
+      </div>
     </div>
- </div>
+  </div>
+</div>

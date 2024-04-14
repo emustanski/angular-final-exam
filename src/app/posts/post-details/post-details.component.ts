@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { PostService } from 'src/app/services/post.service';
 import { Post } from 'src/app/types/post';
 
 @Component({
@@ -8,6 +10,5 @@ import { Post } from 'src/app/types/post';
 })
 export class PostDetailsComponent {
   @Input() currentPost!: Post
-
 
 }

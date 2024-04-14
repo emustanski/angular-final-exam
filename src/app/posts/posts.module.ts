@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PostsRoutingModule } from './posts-routing.module';
 import { AllPostsComponent } from './all-posts/all-posts.component';
 import { CreatePostComponent } from './create-post/create-post.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostComponent } from './post/post.component';
 import { HomePostComponent } from './home-post/home-post.component';
 import { HomeComponent } from './home/home.component';
@@ -27,7 +27,7 @@ import { EditPostComponent } from './edit-post/edit-post.component';
     EditPostComponent
   ],
   imports: [
-    CommonModule, PostsRoutingModule, FormsModule
+    CommonModule, PostsRoutingModule, FormsModule, ReactiveFormsModule
   ],
   exports: [PostComponent,DetailsComponent]
 })

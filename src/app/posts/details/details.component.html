@@ -1,24 +1,27 @@
-
 <div class="blog_main">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="titlepage">
-            <h2>Post Details</h2>
-          </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="titlepage">
+          <h2>Post Details</h2>
         </div>
       </div>
+    </div>
     <app-post-details [currentPost]="currentPost"></app-post-details>
-    <div *ngIf="ownerId === loggedUserId">
-        <ul class="like">
-           
-<!--          
-    <button class="send_btn" [routerLink]="'/' + 'my-posts/' + currentPost._id + '/edit'">
-      Edit
-    </button> -->
-    <button class="send_btn" (click)="deleteHandler()">Delete</button>
-</ul>
-</div>
+  </div>
+  <div *ngIf="ownerId === loggedUserId">
+    <div class="text-2xl font-bold text-center">
+      <ul class="like">
+        <li>
+          <button [routerLink]="'/' + 'my-posts/' + currentPost._id + '/edit'">
+            Edit
+          </button>
+        </li>
+        <li>
+          <button (click)="deleteHandler()">Delete</button>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 <!-- TODO Create delete modal -->

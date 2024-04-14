@@ -20,10 +20,20 @@
               id="title"
               #inputTitle="ngModel"
               ngModel
+              required
+              minlength="5"
             />
           </div>
+          <ng-container *ngIf="inputTitle.touched">
+            <p *ngIf="inputTitle.errors?.['required']">
+              Title is required
+            </p>
+            <p *ngIf="inputTitle.errors?.['minlength']">
+              Your Title must be at least 5 characters long
+            </p>
+          </ng-container>
           <div class="col-md-8">
-            <input
+            <textarea
               class="form_contril"
               placeholder="Content"
               type="text"
@@ -31,8 +41,18 @@
               id="content"
               #inputContent="ngModel"
               ngModel
-            />
+              required
+              minlength="10"
+            ></textarea>
           </div>
+          <ng-container *ngIf="inputContent.touched">
+            <p *ngIf="inputContent.errors?.['required']">
+              Content is required
+            </p>
+            <p *ngIf="inputContent.errors?.['minlength']">
+              Your content must be at least 10 characters long
+            </p>
+          </ng-container>
           <div class="col-md-8">
             <input
               class="form_contril"
@@ -42,8 +62,14 @@
               id="img"
               #inputImg="ngModel"
               ngModel
+              required
             />
           </div>
+          <ng-container *ngIf="inputImg.touched">
+            <p *ngIf="inputImg.errors?.['required']">
+              Image is required
+            </p>
+          </ng-container>
           <div class="col-md-8">
             <button class="send_btn">Create</button>
           </div>

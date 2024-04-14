@@ -4,12 +4,13 @@
           <div class="row">
             <div class="col-md-12">
               <div class="titlepage">
-                <h2>Edit Post</h2>
+                <h2>Edit your post</h2>
               </div>
             </div>
+            <div>sdasdasdasdsdas</div>
           </div>
         </div>
-        <form class="main_form"  (ngSubmit)="editPostHandler()">
+        <form class="main_form" [formGroup]="form" (ngSubmit)="editPostHandler()">
         <div class="row justify-content-center">
           <div class="col-md-8">
             <input
@@ -18,21 +19,40 @@
               type="text"
               name="title"
               id="title"
-              #inputTitle="ngModel"
-              ngModel
+              formControlName="title"
+              required
+              minlength="5"
             />
           </div>
+          <ng-container *ngIf="form.get('title')?.touched">
+            <p *ngIf="form.get('title')?.errors?.['required']">
+              Title is required
+            </p>
+            <p *ngIf="form.get('title')?.errors?.['minlength']">
+              Title must be at least 5 characters long
+            </p>
+          </ng-container>
+
           <div class="col-md-8">
-            <input
+            <textarea
               class="form_contril"
               placeholder="Content"
               type="text"
               name="content"
               id="content"
-              #inputContent="ngModel"
-              ngModel
-            />
+              formControlName="content"
+              required
+              minlength="10"
+            ></textarea>
           </div>
+          <ng-container *ngIf="form.get('content')?.touched">
+            <p *ngIf="form.get('content')?.errors?.['required']">
+              Content is required
+            </p>
+            <p *ngIf="form.get('content')?.errors?.['minlength']">
+              Content must be at least 10 characters long
+            </p>
+          </ng-container>
           <div class="col-md-8">
             <input
               class="form_contril"
@@ -40,10 +60,15 @@
               type="text"
               name="img"
               id="img"
-              #inputImg="ngModel"
-              ngModel
+              formControlName="img"
+              required
             />
           </div>
+          <ng-container *ngIf="form.get('img')?.touched">
+            <p *ngIf="form.get('img')?.errors?.['required']">
+              Image is required
+            </p>
+          </ng-container>
           <div class="col-md-8">
             <button class="send_btn">Edit</button>
           </div>

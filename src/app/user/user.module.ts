@@ -6,15 +6,14 @@ import { UserRoutingModule } from './user-routing.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LogoutComponent } from './logout/logout.component';
-import { ProfileComponent } from './profile/profile.component';
 import { PostsModule } from '../posts/posts.module';
 
 
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, LogoutComponent, ProfileComponent],
+  declarations: [LoginComponent, RegisterComponent, LogoutComponent],
   imports: [
-    CommonModule, UserRoutingModule, RouterModule, FormsModule, ReactiveFormsModule, PostsModule
+    CommonModule, UserRoutingModule,  FormsModule, ReactiveFormsModule, 
   ]
 })
-export class UserModule {}
+export class UserModule { }

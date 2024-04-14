@@ -25,4 +25,3 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     }
   }
 }
-// TODO guard for login and register pages if you are logged in 

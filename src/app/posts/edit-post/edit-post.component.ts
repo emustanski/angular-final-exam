@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Component, ContentChild, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { PostService } from 'src/app/services/post.service';
@@ -10,22 +10,20 @@ import { Post } from 'src/app/types/post';
   templateUrl: './edit-post.component.html',
   styleUrls: ['./edit-post.component.css']
 })
-export class EditPostComponent implements OnInit{
+export class EditPostComponent implements OnInit {
   currentPost: Post = {} as Post;
 
   form!: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private postService: PostService, private route: ActivatedRoute, private location: Location) {
-    this.createForm({...this.currentPost});
+    this.createForm({ ...this.currentPost });
   }
 
   createForm(formValue: Post) {
     this.form = this.formBuilder.group({
-      title: [formValue.title],
+      title: [formValue.title, [Validators.required]],
       content: [formValue.content],
       img: [formValue.img],
-      post: [formValue.post]
-
     })
   }
 
@@ -33,15 +31,10 @@ export class EditPostComponent implements OnInit{
     this.route.params.subscribe((data) => {
       const postId = data['postId'];
       this.postService.getPost(postId).subscribe((res) => {
-        this.createForm({...res})
+        this.createForm({ ...res })
         this.currentPost = res;
       })
     })
-  }
-
-  backHandler(e: Event): void {
-    e.preventDefault();
-    this.location.back()
   }
 
   editPostHandler(): void {

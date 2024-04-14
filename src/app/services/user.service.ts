@@ -1,6 +1,6 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Observable, Subscription, tap } from 'rxjs';
-import { LoginAuthUser, RegisterAuthUser} from '../types/user';
+import { LoginAuthUser, RegisterAuthUser } from '../types/user';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';
 
@@ -16,12 +16,12 @@ export class UserService implements OnDestroy {
   USER_KEY = '[user]'
   user: LoginAuthUser | undefined
   userSub: Subscription;
- 
+
   get isLogged(): boolean {
     return !!this.user;
   }
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
     this.userSub = this.user$.subscribe((user) => {
       this.user = user;
     });
@@ -34,47 +34,43 @@ export class UserService implements OnDestroy {
     }
   }
 
-  login$(email: string, password: string): Observable<any> {
-    return this.http.post<LoginAuthUser>(`${this.apiUrl}/users/login`, { email, password})
-    .pipe(tap((response) => {
+  login(email: string, password: string): Observable<any> {
+    return this.http.post<LoginAuthUser>(`${this.apiUrl}/users/login`, { email, password })
+      .pipe(tap((response) => {
         this.user$$.next(response);
         this.user = response;
         localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
-    })
-    )
+      })
+      )
   }
 
-  register$(email: string, password: string): Observable<any> {
-    return this.http.post<RegisterAuthUser>(`${this.apiUrl}/users/register`, { email, password})
-    .pipe(tap((response) => {
-      this.user$$.next({
-        email: response.email,
-        accessToken: response.accessToken,      
-        _id: response._id
-      });
-      this.user = {
-        email: response.email,
-        accessToken: response.accessToken, 
-        _id: response._id,
-      };
-      localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
-    }))
+  register(email: string, password: string): Observable<any> {
+    return this.http.post<RegisterAuthUser>(`${this.apiUrl}/users/register`, { email, password })
+      .pipe(tap((response) => {
+        this.user$$.next({
+          email: response.email,
+          accessToken: response.accessToken,
+          _id: response._id
+        });
+        this.user = {
+          email: response.email,
+          accessToken: response.accessToken,
+          _id: response._id,
+        };
+        localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
+      }))
   }
 
-  logout$() {
-      this.user = undefined;
-      localStorage.removeItem(this.USER_KEY);
+  logout() {
+    this.user = undefined;
+    localStorage.removeItem(this.USER_KEY);
 
-      return this.http.post(`${this.apiUrl}/users/logout`, {})
-    }
+    return this.http.post(`${this.apiUrl}/users/logout`, {})
+  }
 
-    getUser(): any {
-      return this.http.get(`${this.apiUrl}/users/me`)
-    }
-    // getToken(): string {
-    //   return this.user?.accessToken || '';
-    // }
-  
+  getUser(): any {
+    return this.http.get(`${this.apiUrl}/users/me`)
+  }
 
   ngOnDestroy(): void {
     this.userSub.unsubscribe()
